@@ -4,11 +4,10 @@ import android.annotation.SuppressLint
 import android.os.Bundle
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
-import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
-import androidx.compose.foundation.rememberScrollState
-import androidx.compose.foundation.verticalScroll
+import androidx.compose.foundation.lazy.LazyColumn
+import androidx.compose.foundation.lazy.items
 import androidx.compose.material.Text
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.text.font.FontWeight
@@ -25,15 +24,12 @@ class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContent {
-            val scrollState = rememberScrollState()
-            Column (
-                modifier = Modifier.verticalScroll(scrollState)
-            ){
-                for(i in countriesList){
+            LazyColumn{
+                items(countriesList) {
                     for (j in citiesList) {
-                        if(j.country_code == i.code) {
+                        if(j.country_code == it.code) {
                             Text(
-                                text = "Items ${i.name + ", " + j.name}",
+                                text = it.name + ", " + j.name,
                                 fontSize = 20.sp,
                                 fontWeight = FontWeight.Bold,
                                 textAlign = TextAlign.Center,
