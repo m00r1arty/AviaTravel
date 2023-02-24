@@ -20,12 +20,11 @@ import com.radzhabov.aviatravel.handlers.countriesList
 import com.radzhabov.aviatravel.model.*
 import com.radzhabov.aviatravel.view.*
 
-
 class MainActivity : ComponentActivity() {
     @SuppressLint("UnusedMaterialScaffoldPaddingParameter")
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-                setContent {
+        setContent {
             val scrollState = rememberScrollState()
             Column (
                 modifier = Modifier.verticalScroll(scrollState)
