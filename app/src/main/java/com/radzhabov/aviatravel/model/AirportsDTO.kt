@@ -1,11 +1,10 @@
-package com.radzhabov.aviatravel.Model
+package com.radzhabov.aviatravel.model
 
-
-data class Airports(
-    val airports: List<Airport>
+data class AirportsDTO(
+    val airports: List<AirportDTO>
 )
 
-data class Airport(
+data class AirportDTO(
     val country_code: String,
     val iata_code: String,
     val icao_code: String,

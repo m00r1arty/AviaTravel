@@ -3,21 +3,14 @@ package com.radzhabov.aviatravel
 import android.os.Bundle
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
-import androidx.compose.foundation.layout.fillMaxSize
-import androidx.compose.material.MaterialTheme
-import androidx.compose.material.Surface
-import androidx.compose.material.Text
-import androidx.compose.runtime.Composable
-import androidx.compose.ui.Modifier
-import androidx.compose.ui.tooling.preview.Preview
 import com.google.firebase.crashlytics.buildtools.reloc.com.google.common.reflect.TypeToken
 import com.google.gson.Gson
-import com.radzhabov.aviatravel.Model.Airlines
-import com.radzhabov.aviatravel.Model.Airports
-import com.radzhabov.aviatravel.Model.Cities
-import com.radzhabov.aviatravel.Model.Counties
-import com.radzhabov.aviatravel.Resource.ResourceHelper
-import com.radzhabov.aviatravel.ui.theme.AviatravelTheme
+import com.radzhabov.aviatravel.mapper.mapAirline
+import com.radzhabov.aviatravel.mapper.mapAirport
+import com.radzhabov.aviatravel.mapper.mapCity
+import com.radzhabov.aviatravel.mapper.mapCountry
+import com.radzhabov.aviatravel.model.*
+import com.radzhabov.aviatravel.resource.ResourceHelper
 
 
 class MainActivity : ComponentActivity() {
@@ -28,23 +21,36 @@ class MainActivity : ComponentActivity() {
 
         // Counties handlers
         val jsonFileStringCounties = ResourceHelper.getJsonDataFromAsset("/counties.json")
-        val listCountiesType = object : TypeToken<Counties>() {}.type
-        val counties: Counties = gson.fromJson(jsonFileStringCounties, listCountiesType)
+        val listCountiesType = object : TypeToken<CountriesDTO>() {}.type
+        val countries: CountriesDTO = gson.fromJson(jsonFileStringCounties, listCountiesType)
+        val countriesList = countries.countries.map { dto ->
+            dto.mapCountry()
+        }
 
         // Cities handlers
         val jsonFileStringCities = ResourceHelper.getJsonDataFromAsset("/cities.json")
-        val listCitiesType = object : TypeToken<Cities>() {}.type
-        val cities: Cities = gson.fromJson(jsonFileStringCities, listCitiesType)
+        val listCitiesType = object : TypeToken<CitiesDTO>() {}.type
+        val cities: CitiesDTO = gson.fromJson(jsonFileStringCities, listCitiesType)
+        val citiesList = cities.cities.map { dto ->
+            dto.mapCity()
+        }
+
 
         // Airlines handlers
         val jsonFileStringAirlines = ResourceHelper.getJsonDataFromAsset("/airlines.json")
-        val listAirlinesType = object : TypeToken<Airlines>() {}.type
-        val airlines: Airlines = gson.fromJson(jsonFileStringAirlines, listAirlinesType)
+        val listAirlinesType = object : TypeToken<AirlinesDTO>() {}.type
+        val airlines: AirlinesDTO = gson.fromJson(jsonFileStringAirlines, listAirlinesType)
+        val airlinesList = airlines.airlines.map { dto ->
+            dto.mapAirline()
+        }
 
         // Airports handlers
         val jsonFileStringAirports = ResourceHelper.getJsonDataFromAsset("/airports.json")
-        val listAirportsType = object : TypeToken<Airports>() {}.type
-        val airports: Airports = gson.fromJson(jsonFileStringAirports, listAirportsType)
+        val listAirportsType = object : TypeToken<AirportsDTO>() {}.type
+        val airports: AirportsDTO = gson.fromJson(jsonFileStringAirports, listAirportsType)
+        val airportsList = airports.airports.map { dto ->
+            dto.mapAirport()
+        }
 
         setContent {
 

@@ -1,10 +1,10 @@
-package com.radzhabov.aviatravel.Model
+package com.radzhabov.aviatravel.model
 
-data class Cities(
-    val cities: List<City>
+data class CitiesDTO(
+    val cities: List<CityDTO>
 )
 
-data class City(
+data class CityDTO(
     val city_code: String,
     val country_code: String,
     val lat: Double,
