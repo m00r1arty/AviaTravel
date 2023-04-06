@@ -1,7 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
 
+    <!-- Base application theme. -->
     <style name="Theme.Aviatravel" parent="android:Theme.Material.Light.NoActionBar">
-        <item name="android:statusBarColor">@color/purple_700</item>
+        <item name="android:statusBarColor">#211a18</item>
+        <item name="android:navigationBarColor">#211a18</item>
     </style>
 </resources>

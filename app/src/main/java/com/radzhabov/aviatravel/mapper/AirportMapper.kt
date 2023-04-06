@@ -1,7 +1,7 @@
 package com.radzhabov.aviatravel.mapper
 
 import com.radzhabov.aviatravel.data.Airport
-import com.radzhabov.aviatravel.model.AirportDTO
+import com.radzhabov.aviatravel.data.model.AirportDTO
 
 fun AirportDTO.mapAirport() = Airport(
     country_code = this.country_code,

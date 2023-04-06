@@ -12,7 +12,6 @@ class ResourceHelper {
                     ResourceHelper::class.java.getResourceAsStream(resourcePath)?.use { input ->
                         BufferedReader(InputStreamReader(input)).use { reader ->
                             var string: String? = reader.readLine()
-
                             while (string != null) {
                                 append(string)
                                 string = reader.readLine()

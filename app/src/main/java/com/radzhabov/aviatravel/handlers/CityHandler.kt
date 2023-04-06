@@ -2,7 +2,7 @@ package com.radzhabov.aviatravel.handlers
 
 import com.google.firebase.crashlytics.buildtools.reloc.com.google.common.reflect.TypeToken
 import com.radzhabov.aviatravel.mapper.mapCity
-import com.radzhabov.aviatravel.model.CitiesDTO
+import com.radzhabov.aviatravel.data.model.CitiesDTO
 import com.radzhabov.aviatravel.resource.ResourceHelper
 
 // Cities handlers

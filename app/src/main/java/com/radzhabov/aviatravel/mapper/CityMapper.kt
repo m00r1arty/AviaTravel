@@ -1,7 +1,7 @@
 package com.radzhabov.aviatravel.mapper
 
 import com.radzhabov.aviatravel.data.City
-import com.radzhabov.aviatravel.model.CityDTO
+import com.radzhabov.aviatravel.data.model.CityDTO
 
 fun CityDTO.mapCity() = City(
     country_code = this.country_code,
