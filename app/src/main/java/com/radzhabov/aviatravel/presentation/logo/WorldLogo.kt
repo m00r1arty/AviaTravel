@@ -15,7 +15,7 @@ import com.radzhabov.aviatravel.R
 fun WorldLogo() {
     Image(
         colorFilter = ColorFilter.tint(Color.White),
-        imageVector = ImageVector.vectorResource(id = R.drawable.world),
+        imageVector = ImageVector.vectorResource(id = R.drawable.ic_world),
         contentDescription = null,
         modifier = Modifier
             .padding(5.dp)
