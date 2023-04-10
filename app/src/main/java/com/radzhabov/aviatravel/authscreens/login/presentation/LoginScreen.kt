@@ -1,4 +1,4 @@
-package com.radzhabov.aviatravel.presentation.screen
+package com.radzhabov.aviatravel.authscreens.login.presentation
 
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Column
@@ -10,6 +10,7 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
 import androidx.navigation.NavController
+import com.radzhabov.aviatravel.authscreens.login.presentation.LoginCard
 import com.radzhabov.aviatravel.presentation.logo.AppLogo
 import com.radzhabov.aviatravel.presentation.logo.WorldLogo
 import com.radzhabov.aviatravel.presentation.ui.theme.DarkBlue

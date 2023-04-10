@@ -1,4 +1,4 @@
-package com.radzhabov.aviatravel.presentation.screen
+package com.radzhabov.aviatravel.authscreens
 
 sealed class Screens(val route: String) {
     object Login: Screens("login")

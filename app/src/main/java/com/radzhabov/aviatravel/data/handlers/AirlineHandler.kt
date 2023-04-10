@@ -1,9 +1,9 @@
-package com.radzhabov.aviatravel.handlers
+package com.radzhabov.aviatravel.data.handlers
 
 import com.google.firebase.crashlytics.buildtools.reloc.com.google.common.reflect.TypeToken
-import com.radzhabov.aviatravel.mapper.mapAirline
-import com.radzhabov.aviatravel.data.model.AirlinesDTO
-import com.radzhabov.aviatravel.resource.ResourceHelper
+import com.radzhabov.aviatravel.data.mapper.mapAirline
+import com.radzhabov.aviatravel.data.dto.AirlinesDTO
+import com.radzhabov.aviatravel.data.resource.ResourceHelper
 
 // Airlines handlers
 val jsonFileStringAirlines = ResourceHelper.getJsonDataFromAsset("/airlines.json")

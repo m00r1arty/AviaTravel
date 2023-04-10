@@ -1,10 +1,10 @@
-package com.radzhabov.aviatravel.handlers
+package com.radzhabov.aviatravel.data.handlers
 
 import com.google.firebase.crashlytics.buildtools.reloc.com.google.common.reflect.TypeToken
 import com.google.gson.Gson
-import com.radzhabov.aviatravel.mapper.mapCountry
-import com.radzhabov.aviatravel.data.model.CountriesDTO
-import com.radzhabov.aviatravel.resource.ResourceHelper
+import com.radzhabov.aviatravel.data.mapper.mapCountry
+import com.radzhabov.aviatravel.data.dto.CountriesDTO
+import com.radzhabov.aviatravel.data.resource.ResourceHelper
 
 val gson = Gson()
 

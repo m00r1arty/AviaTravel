@@ -1,4 +1,4 @@
-package com.radzhabov.aviatravel.presentation.screen
+package com.radzhabov.aviatravel.authscreens.login.presentation
 
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.layout.*
@@ -22,11 +22,11 @@ import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.navigation.NavController
 import com.radzhabov.aviatravel.R
+import com.radzhabov.aviatravel.authscreens.Screens
 import com.radzhabov.aviatravel.presentation.ui.theme.*
 
 @Composable
 fun LoginCard(navController: NavController) {
-
     Card(
         backgroundColor = CalmBlue,
         modifier = Modifier.fillMaxSize(),
@@ -136,19 +136,19 @@ fun LoginCard(navController: NavController) {
 
                 Spacer(modifier = Modifier.padding(20.dp))
 
-                AuthWithExternalService(
+                LoginWithExternalService(
                     text = "Sign in with Google",
                     imageResourceId = R.drawable.ic_google
                 )
 
                 Spacer(modifier = Modifier.padding(10.dp))
 
-                AuthWithExternalService(
+                LoginWithExternalService(
                     text = "Sign in with Apple",
                     imageResourceId = R.drawable.ic_apple
                 )
 
-                Spacer(modifier = Modifier.padding(20.dp))
+                Spacer(modifier = Modifier.padding(15.dp))
 
                 Button(
                     onClick = {  },

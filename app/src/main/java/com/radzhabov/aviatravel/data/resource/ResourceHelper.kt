@@ -1,4 +1,4 @@
-package com.radzhabov.aviatravel.resource
+package com.radzhabov.aviatravel.data.resource
 
 import java.io.BufferedReader
 import java.io.IOException

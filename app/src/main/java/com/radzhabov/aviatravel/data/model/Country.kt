@@ -1,4 +1,4 @@
-package com.radzhabov.aviatravel.data
+package com.radzhabov.aviatravel.data.model
 
 data class Country(
     val code: String,

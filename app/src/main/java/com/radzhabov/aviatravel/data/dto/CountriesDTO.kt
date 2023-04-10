@@ -1,4 +1,4 @@
-package com.radzhabov.aviatravel.data.model
+package com.radzhabov.aviatravel.data.dto
 
 data class CountriesDTO(
     val countries: List<CountryDTO>
