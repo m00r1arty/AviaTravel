@@ -7,8 +7,8 @@ import androidx.activity.compose.setContent
 import androidx.compose.foundation.layout.*
 import androidx.compose.material.*
 import com.radzhabov.aviatravel.presentation.*
-import com.radzhabov.aviatravel.presentation.navigation.AppNavigation
-//import com.radzhabov.aviatravel.presentation.navigation.MyApp
+import com.radzhabov.aviatravel.screens.presentation.navigation.AppNavigation
+import com.radzhabov.aviatravel.screens.presentation.navigation.BottomNavBar
 
 class MainActivity : ComponentActivity() {
     @SuppressLint("UnusedMaterialScaffoldPaddingParameter")
@@ -16,6 +16,7 @@ class MainActivity : ComponentActivity() {
         super.onCreate(savedInstanceState)
         setContent {
             AppNavigation()
+//            BottomNavBar()
         }
     }
 }

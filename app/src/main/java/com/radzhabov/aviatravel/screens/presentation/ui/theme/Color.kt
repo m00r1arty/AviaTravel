@@ -1,4 +1,4 @@
-package com.radzhabov.aviatravel.presentation.ui.theme
+package com.radzhabov.aviatravel.screens.presentation.ui.theme
 
 import androidx.compose.ui.graphics.Color
 

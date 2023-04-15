@@ -1,4 +1,4 @@
-package com.radzhabov.aviatravel.authscreens.login.presentation
+package com.radzhabov.aviatravel.screens.presentation.login.presentation
 
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.layout.*
@@ -22,8 +22,8 @@ import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.navigation.NavController
 import com.radzhabov.aviatravel.R
-import com.radzhabov.aviatravel.authscreens.Screens
-import com.radzhabov.aviatravel.presentation.ui.theme.*
+import com.radzhabov.aviatravel.screens.presentation.Screens
+import com.radzhabov.aviatravel.screens.presentation.ui.theme.*
 
 @Composable
 fun LoginCard(navController: NavController) {
@@ -151,7 +151,10 @@ fun LoginCard(navController: NavController) {
                 Spacer(modifier = Modifier.padding(15.dp))
 
                 Button(
-                    onClick = {  },
+                    onClick = { navController.navigate(Screens.BottomNavBar.route) {
+                        launchSingleTop = true
+                        restoreState = true
+                    }},
                     shape = RoundedCornerShape(11.dp),
                     colors = ButtonDefaults.buttonColors(
                         backgroundColor = DarkBlue,

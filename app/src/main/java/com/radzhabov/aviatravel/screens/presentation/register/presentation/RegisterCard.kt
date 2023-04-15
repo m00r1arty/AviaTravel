@@ -1,4 +1,4 @@
-package com.radzhabov.aviatravel.authscreens.register.presentation
+package com.radzhabov.aviatravel.screens.presentation.register.presentation
 
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.layout.*
@@ -22,9 +22,8 @@ import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.navigation.NavController
 import com.radzhabov.aviatravel.R
-import com.radzhabov.aviatravel.authscreens.Screens
-import com.radzhabov.aviatravel.authscreens.login.presentation.LoginWithExternalService
-import com.radzhabov.aviatravel.presentation.ui.theme.*
+import com.radzhabov.aviatravel.screens.presentation.Screens
+import com.radzhabov.aviatravel.screens.presentation.ui.theme.*
 
 @Composable
 fun RegisterCard(navController: NavController) {

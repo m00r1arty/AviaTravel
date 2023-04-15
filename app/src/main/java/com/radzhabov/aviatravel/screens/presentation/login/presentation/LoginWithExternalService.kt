@@ -1,4 +1,4 @@
-package com.radzhabov.aviatravel.authscreens.login.presentation
+package com.radzhabov.aviatravel.screens.presentation.login.presentation
 
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.layout.Row
@@ -15,7 +15,7 @@ import androidx.compose.ui.text.AnnotatedString
 import androidx.compose.ui.text.TextStyle
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
-import com.radzhabov.aviatravel.presentation.ui.theme.DarkBlue
+import com.radzhabov.aviatravel.screens.presentation.ui.theme.DarkBlue
 
 @Composable
 fun LoginWithExternalService(
