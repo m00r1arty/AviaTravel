@@ -20,7 +20,7 @@ fun AppLogo() {
         //painter = painterResource(id = R.drawable.ic_app_logo),
         contentDescription = null,
         modifier = Modifier
-            .padding(start = 20.dp, top = 20.dp, end = 10.dp, bottom = 115.dp)
+            .padding(start = 20.dp, top = 20.dp, end = 20.dp, bottom = 100.dp)
     )
 }
 

@@ -1,4 +1,4 @@
-package com.radzhabov.aviatravel.screens.presentation.login.presentation
+package com.radzhabov.aviatravel.screens.presentation.login
 
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Column
@@ -8,8 +8,10 @@ import androidx.compose.foundation.layout.size
 import androidx.compose.material.Card
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.navigation.NavController
+import androidx.navigation.compose.rememberNavController
 import com.radzhabov.aviatravel.screens.presentation.logo.AppLogo
 import com.radzhabov.aviatravel.screens.presentation.logo.WorldLogo
 import com.radzhabov.aviatravel.screens.presentation.ui.theme.DarkBlue
@@ -26,7 +28,7 @@ fun Login(navController: NavController) {
         ) {
             Row(
                 modifier = Modifier
-                    .size(160.dp)
+                    .size(150.dp)
             ) {
                 AppLogo()
 
@@ -35,4 +37,11 @@ fun Login(navController: NavController) {
         }
         LoginCard(navController)
     }
+}
+
+@Preview(showBackground = true)
+@Composable
+fun LoginPreview () {
+    val navController = rememberNavController()
+    Login(navController)
 }

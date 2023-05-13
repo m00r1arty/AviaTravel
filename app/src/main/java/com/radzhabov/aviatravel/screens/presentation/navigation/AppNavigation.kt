@@ -5,8 +5,8 @@ import androidx.compose.runtime.Composable
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.rememberNavController
 import androidx.navigation.compose.composable
-import com.radzhabov.aviatravel.screens.presentation.login.presentation.Login
-import com.radzhabov.aviatravel.screens.presentation.register.presentation.Register
+import com.radzhabov.aviatravel.screens.presentation.login.Login
+import com.radzhabov.aviatravel.screens.presentation.register.Register
 import com.radzhabov.aviatravel.screens.presentation.Screens
 import com.radzhabov.aviatravel.screens.presentation.search.Search
 import com.radzhabov.aviatravel.screens.presentation.home.Home
@@ -34,7 +34,7 @@ fun AppNavigation(){
         }
 
         composable(route = Screens.Search.route ){
-            Search(padding)
+            Search()
         }
 
         composable(route = Screens.Profile.route ){
