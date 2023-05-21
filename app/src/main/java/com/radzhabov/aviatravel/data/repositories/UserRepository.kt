@@ -13,6 +13,7 @@ import javax.inject.Singleton
 class UserRepository @Inject constructor(
     private val userDao: UserDao
 ) {
+
     suspend fun login(email: String, password: String) = withContext(IO) {
         val userEntity = userDao.login(email, password)
         return@withContext userEntity?.mapUser()

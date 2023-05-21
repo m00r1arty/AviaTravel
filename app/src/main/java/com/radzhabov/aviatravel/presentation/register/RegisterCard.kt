@@ -203,7 +203,7 @@ fun RegisterCard(
                         if(name.isEmpty() || email.isEmpty() || password.isEmpty()) {
                             errorMessage.value = "All fields are required"
                         } else {
-                            viewModel.register()
+                            viewModel.register(name, email, password)
                             Toast.makeText(
                                 context,
                                 "A new user is registered",

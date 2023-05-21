@@ -14,6 +14,7 @@ import androidx.compose.foundation.text.KeyboardOptions
 import androidx.compose.material.Button
 import androidx.compose.material.ButtonDefaults
 import androidx.compose.material.Card
+import androidx.compose.material.CircularProgressIndicator
 import androidx.compose.material.Icon
 import androidx.compose.material.OutlinedTextField
 import androidx.compose.material.Text
@@ -22,8 +23,10 @@ import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.Email
 import androidx.compose.material.icons.filled.Lock
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
+import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.shadow
@@ -56,8 +59,8 @@ fun LoginCard(
     val context = LocalContext.current
     val userRepository = UserRepository(userDao)
     val viewModel: AuthViewModel = viewModel(factory = AuthViewModel.AuthViewModelFactory(userRepository))
-    var email = remember { mutableStateOf("") }
-    var password = remember { mutableStateOf("") }
+    var email by remember { mutableStateOf("") }
+    var password by remember { mutableStateOf("") }
 
     Card(
         backgroundColor = CalmBlue,
@@ -101,8 +104,8 @@ fun LoginCard(
                 )
 
                 OutlinedTextField(
-                    value = email.value,
-                    onValueChange = { email.value = it },
+                    value = email,
+                    onValueChange = { email = it },
                     label = { Text(text = "Email") },
                     trailingIcon = { Icon(Icons.Filled.Email, contentDescription = "Email", tint = DarkBlue) },
                     placeholder = { Text(text = "Enter your email") },
@@ -127,8 +130,8 @@ fun LoginCard(
                 )
 
                 OutlinedTextField(
-                    value = password.value,
-                    onValueChange = { password.value = it },
+                    value = password,
+                    onValueChange = { password = it },
                     label = { Text(text = "Password") },
                     trailingIcon = { Icon(Icons.Filled.Lock, contentDescription = "Password", tint = DarkBlue) },
                     placeholder = { Text(text = "Enter your password") },
@@ -181,18 +184,28 @@ fun LoginCard(
 
                 Button(
                     onClick = {
-                        if (email.value.isEmpty() || password.value.isEmpty()) {
+
+                        if (email.isEmpty() || password.isEmpty()) {
                             Toast.makeText(
                                 context,
                                 "All fields are required",
                                 Toast.LENGTH_SHORT
                             ).show()
                         } else {
-                            viewModel.login()
-                            navController.navigate(Screens.BottomNavBar.route) {
-                                launchSingleTop = true
-                                restoreState = true
+                            val isChecked = viewModel.login(email, password)
+                            if (isChecked.value == true) {
+                                navController.navigate(Screens.BottomNavBar.route) {
+                                    launchSingleTop = true
+                                    restoreState = true
+                                }
+                            } else {
+                                Toast.makeText(
+                                    context,
+                                    "Login failed!",
+                                    Toast.LENGTH_SHORT
+                                ).show()
                             }
+
                         }
                     },
                     shape = RoundedCornerShape(16.dp),
