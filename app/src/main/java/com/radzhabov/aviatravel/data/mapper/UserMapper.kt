@@ -1,7 +1,7 @@
 package com.radzhabov.aviatravel.data.mapper
 
-import com.radzhabov.aviatravel.screens.data.entities.UserEntity
-import com.radzhabov.aviatravel.screens.data.model.User
+import com.radzhabov.aviatravel.data.entities.UserEntity
+import com.radzhabov.aviatravel.data.model.User
 
 fun UserEntity.mapUser() = User(
     name = this.name,
