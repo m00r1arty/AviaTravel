@@ -34,7 +34,7 @@ fun AppNavigation(){
         }
 
         composable(route = Screens.Search.route ){
-            Search()
+            Search(navController)
         }
 
         composable(route = Screens.Profile.route ){

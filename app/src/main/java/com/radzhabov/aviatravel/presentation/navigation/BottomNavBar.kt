@@ -5,6 +5,7 @@ import androidx.compose.runtime.*
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.tooling.preview.Preview
+import androidx.navigation.compose.rememberNavController
 import com.radzhabov.aviatravel.R
 import com.radzhabov.aviatravel.presentation.search.Search
 import com.radzhabov.aviatravel.data.model.Screen
@@ -17,12 +18,13 @@ import com.radzhabov.aviatravel.presentation.theme.DarkBlue
 fun BottomNavBar() {
     var selectedScreen by remember { mutableStateOf(0) }
     val scaffoldState = rememberScaffoldState()
+    val navController = rememberNavController()
 
     val screens = listOf(
         Screen(label = "Home", icon = painterResource(R.drawable.ic_home)),
         Screen(label = "Search", icon = painterResource(R.drawable.ic_search)),
         Screen(label = "Trace", icon = painterResource(R.drawable.ic_trace)),
-        Screen(label = "Profile", icon = painterResource(R.drawable.ic_profile)),
+        Screen(label = "Profile", icon = painterResource(R.drawable.ic_profile))
     )
 
     Scaffold(
@@ -44,7 +46,7 @@ fun BottomNavBar() {
     ) { innerPadding ->
         when (selectedScreen) {
             0 -> Home(innerPadding)
-            1 -> Search()
+            1 -> Search(navController)
             2 -> Trace(innerPadding)
             3 -> Profile(innerPadding)
         }
