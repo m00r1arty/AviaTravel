@@ -1,6 +1,5 @@
 package com.radzhabov.aviatravel.presentation.login
 
-import android.annotation.SuppressLint
 import android.widget.Toast
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
@@ -51,7 +50,6 @@ import com.radzhabov.aviatravel.presentation.theme.MiddleBlue
 import com.radzhabov.aviatravel.presentation.theme.SapphireBlue
 import com.radzhabov.aviatravel.presentation.viewmodels.AuthViewModel
 
-@SuppressLint("UnusedMaterialScaffoldPaddingParameter")
 @Composable
 fun LoginCard(
     userDao: UserDao,

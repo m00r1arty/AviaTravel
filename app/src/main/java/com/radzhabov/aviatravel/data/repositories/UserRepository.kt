@@ -15,7 +15,7 @@ class UserRepository @Inject constructor(
 ) {
     suspend fun login(email: String, password: String) = withContext(IO) {
         val userEntity = userDao.login(email, password)
-        return@withContext userEntity.mapUser()
+        return@withContext userEntity?.mapUser()
     }
 
     suspend fun register(user: User) = withContext(IO) {
