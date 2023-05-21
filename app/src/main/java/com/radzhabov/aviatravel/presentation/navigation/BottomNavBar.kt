@@ -1,13 +1,11 @@
 package com.radzhabov.aviatravel.presentation.navigation
 
 import androidx.compose.material.*
-import androidx.compose.material.icons.Icons
-import androidx.compose.material.icons.filled.Home
-import androidx.compose.material.icons.filled.Person
-import androidx.compose.material.icons.filled.Search
 import androidx.compose.runtime.*
 import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.tooling.preview.Preview
+import com.radzhabov.aviatravel.R
 import com.radzhabov.aviatravel.presentation.search.Search
 import com.radzhabov.aviatravel.data.model.Screen
 import com.radzhabov.aviatravel.presentation.home.Home
@@ -21,10 +19,10 @@ fun BottomNavBar() {
     val scaffoldState = rememberScaffoldState()
 
     val screens = listOf(
-        Screen(label = "Home", icon = Icons.Filled.Home, text = "Home page"),
-        Screen(label = "Search", icon = Icons.Filled.Search, text = "Search page"),
-        Screen(label = "Trace", icon = Icons.Filled.Search, text = "Trace"),
-        Screen(label = "Profile", icon = Icons.Filled.Person, text = "Profile page"),
+        Screen(label = "Home", icon = painterResource(R.drawable.ic_home)),
+        Screen(label = "Search", icon = painterResource(R.drawable.ic_search)),
+        Screen(label = "Trace", icon = painterResource(R.drawable.ic_trace)),
+        Screen(label = "Profile", icon = painterResource(R.drawable.ic_profile)),
     )
 
     Scaffold(
@@ -39,7 +37,6 @@ fun BottomNavBar() {
                         selected = selectedScreen == index,
                         onClick = { selectedScreen = index },
                         icon = { Icon(screen.icon, contentDescription = screen.label) },
-                        label = { Text(screen.text) }
                     )
                 }
             }

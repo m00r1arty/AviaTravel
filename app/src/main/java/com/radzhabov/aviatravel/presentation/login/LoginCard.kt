@@ -49,6 +49,7 @@ import com.radzhabov.aviatravel.presentation.theme.DarkBlue
 import com.radzhabov.aviatravel.presentation.theme.MiddleBlue
 import com.radzhabov.aviatravel.presentation.theme.SapphireBlue
 import com.radzhabov.aviatravel.presentation.viewmodels.AuthViewModel
+import kotlinx.coroutines.runBlocking
 
 @Composable
 fun LoginCard(
@@ -60,7 +61,8 @@ fun LoginCard(
     val viewModel: AuthViewModel = viewModel(factory = AuthViewModel.AuthViewModelFactory(userRepository))
     var email by remember { mutableStateOf("") }
     var password by remember { mutableStateOf("") }
-    val errorMessage = remember { mutableStateOf("") }
+    val account = runBlocking { userRepository.login(email, password) }
+
 
     Card(
         backgroundColor = CalmBlue,
@@ -190,7 +192,7 @@ fun LoginCard(
                                 "All fields are required",
                                 Toast.LENGTH_SHORT
                             ).show()
-                        } else {
+                        } else if (account != null) {
                             viewModel.login()
                             navController.navigate(Screens.BottomNavBar.route) {
                                 launchSingleTop = true

@@ -1,9 +1,8 @@
 package com.radzhabov.aviatravel.data.model
 
-import androidx.compose.ui.graphics.vector.ImageVector
+import androidx.compose.ui.graphics.painter.Painter
 
 data class Screen(
     val label: String,
-    val icon: ImageVector,
-    val text: String,
+    val icon: Painter,
 )
