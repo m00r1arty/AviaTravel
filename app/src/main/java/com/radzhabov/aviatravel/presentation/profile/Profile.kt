@@ -10,6 +10,6 @@ import androidx.compose.ui.Modifier
 @Composable
 fun Profile(padding: PaddingValues) {
     Box(Modifier.padding(padding)) {
-        Text("profile page")
+        
     }
 }

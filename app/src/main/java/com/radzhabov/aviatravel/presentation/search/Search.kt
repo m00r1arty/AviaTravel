@@ -22,8 +22,7 @@ fun Search(
     navController: NavController
 ) {
     val context = LocalContext.current
-    val db = remember { AppDatabase.getInstance(context) }
-
+    
     Column(
         Modifier.background(DarkBlue)
     ) {

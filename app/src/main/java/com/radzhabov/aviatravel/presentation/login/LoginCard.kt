@@ -50,6 +50,7 @@ import com.radzhabov.aviatravel.presentation.theme.DarkBlue
 import com.radzhabov.aviatravel.presentation.theme.MiddleBlue
 import com.radzhabov.aviatravel.presentation.theme.SapphireBlue
 import com.radzhabov.aviatravel.presentation.viewmodels.AuthViewModel
+import kotlinx.coroutines.runBlocking
 
 @Composable
 fun LoginCard(
@@ -58,7 +59,8 @@ fun LoginCard(
 ) {
     val context = LocalContext.current
     val userRepository = UserRepository(userDao)
-    val viewModel: AuthViewModel = viewModel(factory = AuthViewModel.AuthViewModelFactory(userRepository))
+    val viewModel: AuthViewModel =
+        viewModel(factory = AuthViewModel.AuthViewModelFactory(userRepository))
     var email by remember { mutableStateOf("") }
     var password by remember { mutableStateOf("") }
 
@@ -107,7 +109,13 @@ fun LoginCard(
                     value = email,
                     onValueChange = { email = it },
                     label = { Text(text = "Email") },
-                    trailingIcon = { Icon(Icons.Filled.Email, contentDescription = "Email", tint = DarkBlue) },
+                    trailingIcon = {
+                        Icon(
+                            Icons.Filled.Email,
+                            contentDescription = "Email",
+                            tint = DarkBlue
+                        )
+                    },
                     placeholder = { Text(text = "Enter your email") },
                     modifier = Modifier
                         .fillMaxWidth()
@@ -133,7 +141,13 @@ fun LoginCard(
                     value = password,
                     onValueChange = { password = it },
                     label = { Text(text = "Password") },
-                    trailingIcon = { Icon(Icons.Filled.Lock, contentDescription = "Password", tint = DarkBlue) },
+                    trailingIcon = {
+                        Icon(
+                            Icons.Filled.Lock,
+                            contentDescription = "Password",
+                            tint = DarkBlue
+                        )
+                    },
                     placeholder = { Text(text = "Enter your password") },
                     modifier = Modifier
                         .fillMaxWidth()
@@ -192,20 +206,21 @@ fun LoginCard(
                                 Toast.LENGTH_SHORT
                             ).show()
                         } else {
-                            val isChecked = viewModel.login(email, password)
-                            if (isChecked.value == true) {
-                                navController.navigate(Screens.BottomNavBar.route) {
-                                    launchSingleTop = true
-                                    restoreState = true
+                            runBlocking {
+                                val isChecked = viewModel.login(email, password)
+                                if (isChecked) {
+                                    navController.navigate(Screens.BottomNavBar.route) {
+                                        launchSingleTop = true
+                                        restoreState = true
+                                    }
+                                } else {
+                                    Toast.makeText(
+                                        context,
+                                        "Login failed!",
+                                        Toast.LENGTH_SHORT
+                                    ).show()
                                 }
-                            } else {
-                                Toast.makeText(
-                                    context,
-                                    "Login failed!",
-                                    Toast.LENGTH_SHORT
-                                ).show()
                             }
-
                         }
                     },
                     shape = RoundedCornerShape(16.dp),

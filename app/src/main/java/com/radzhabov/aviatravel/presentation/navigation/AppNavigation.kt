@@ -9,8 +9,8 @@ import com.radzhabov.aviatravel.presentation.login.Login
 import com.radzhabov.aviatravel.presentation.register.Register
 import com.radzhabov.aviatravel.presentation.Screens
 import com.radzhabov.aviatravel.presentation.search.Search
-import com.radzhabov.aviatravel.presentation.home.Home
 import com.radzhabov.aviatravel.presentation.profile.Profile
+import com.radzhabov.aviatravel.presentation.trace.Trace
 
 @Composable
 fun AppNavigation(){
@@ -29,12 +29,12 @@ fun AppNavigation(){
             Register(navController)
         }
 
-        composable(route = Screens.Home.route ){
-            Home(padding)
-        }
-
         composable(route = Screens.Search.route ){
             Search(navController)
+        }
+
+        composable(route = Screens.Trace.route ){
+            Trace()
         }
 
         composable(route = Screens.Profile.route ){
