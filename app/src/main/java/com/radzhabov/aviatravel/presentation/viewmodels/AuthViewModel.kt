@@ -19,10 +19,8 @@ import javax.inject.Inject
 class AuthViewModel @Inject constructor(
     private val userRepository: UserRepository
 ) : ViewModel() {
-
     private val _user = MutableStateFlow(User.defaultUser())
     val user: StateFlow<User> = _user.asStateFlow()
-
 
     suspend fun login(email: String, password: String): Boolean {
         val resultOfSign = MutableStateFlow<Boolean>(false)
@@ -32,7 +30,6 @@ class AuthViewModel @Inject constructor(
         }
         return resultOfSign.value
     }
-
     // Остальные функции ViewModel
 
     fun register(name: String, email: String, password: String) {
@@ -42,13 +39,6 @@ class AuthViewModel @Inject constructor(
             }
         }
     }
-
-//    fun insertFilghts() {
-//        viewModelScope.launch {
-//            userRepository.register(User(name, email, password))
-//
-//        }
-//    }
 
     class AuthViewModelFactory(
         private val userRepository: UserRepository,
