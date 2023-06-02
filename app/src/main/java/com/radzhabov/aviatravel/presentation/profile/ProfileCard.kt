@@ -1,6 +1,11 @@
 package com.radzhabov.aviatravel.presentation.profile
 
+import android.widget.Toast
+import androidx.compose.foundation.BorderStroke
+import androidx.compose.foundation.background
+import androidx.compose.foundation.border
 import androidx.compose.foundation.layout.Arrangement
+import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxHeight
@@ -15,6 +20,7 @@ import androidx.compose.material.Button
 import androidx.compose.material.ButtonDefaults
 import androidx.compose.material.Card
 import androidx.compose.material.Icon
+import androidx.compose.material.OutlinedButton
 import androidx.compose.material.OutlinedTextField
 import androidx.compose.material.Text
 import androidx.compose.material.TextFieldDefaults
@@ -24,6 +30,7 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
 import androidx.compose.ui.draw.shadow
 import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.graphics.SolidColor
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.input.ImeAction
@@ -31,9 +38,12 @@ import androidx.compose.ui.text.input.KeyboardType
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import com.radzhabov.aviatravel.R
+import com.radzhabov.aviatravel.data.handlers.flightsList
+import com.radzhabov.aviatravel.presentation.Screens
 import com.radzhabov.aviatravel.presentation.theme.CalmBlue
 import com.radzhabov.aviatravel.presentation.theme.DarkBlue
 import com.radzhabov.aviatravel.presentation.theme.MiddleBlue
+import kotlinx.coroutines.runBlocking
 
 @Composable
 fun ProfileCard() {
@@ -53,9 +63,90 @@ fun ProfileCard() {
                 ),
             shape = RoundedCornerShape(size = 15.dp),
         ) {
-           Text(
-               text = "UserName"
-           )
+            Column(
+                horizontalAlignment = Alignment.CenterHorizontally,
+                verticalArrangement = Arrangement.Top,
+                modifier = Modifier.padding(start = 16.dp, end = 16.dp)
+            ) {
+                Text(
+                    text = "UserName",
+                    fontSize = 24.sp,
+                    color = DarkBlue,
+                    fontWeight = FontWeight.SemiBold,
+                    modifier = Modifier
+                        .fillMaxWidth()
+                        .padding(top = 30.dp, bottom = 30.dp, start = 16.dp)
+                )
+
+
+                OutlinedButton(
+                    onClick = {
+
+                    },
+                    border = BorderStroke(3.dp, DarkBlue),
+                    shape = RoundedCornerShape(8.dp),
+                    colors = ButtonDefaults.buttonColors(
+                        backgroundColor = Color.White,
+                        contentColor = DarkBlue
+                    ),
+                    modifier = Modifier
+                        .fillMaxWidth()
+                ) {
+                    Text(
+                        text = "Change username account",
+                        modifier = Modifier
+                            .padding(top = 5.dp, bottom = 5.dp),
+                        fontSize = 16.sp
+                    )
+                }
+
+                Spacer(modifier = Modifier.padding(16.dp))
+
+                OutlinedButton(
+                    onClick = {
+
+                    },
+                    border = BorderStroke(3.dp, DarkBlue),
+                    shape = RoundedCornerShape(8.dp),
+                    colors = ButtonDefaults.buttonColors(
+                        backgroundColor = Color.White,
+                        contentColor = DarkBlue
+                    ),
+                    modifier = Modifier
+                        .fillMaxWidth()
+                ) {
+                    Text(
+                        text = "Change email account",
+                        modifier = Modifier
+                            .padding(top = 5.dp, bottom = 5.dp),
+                        fontSize = 16.sp
+                    )
+                }
+
+                Spacer(modifier = Modifier.padding(16.dp))
+
+                OutlinedButton(
+                    onClick = {
+
+                    },
+                    border = BorderStroke(3.dp, DarkBlue),
+                    shape = RoundedCornerShape(8.dp),
+                    colors = ButtonDefaults.buttonColors(
+                        backgroundColor = Color.White,
+                        contentColor = DarkBlue
+                    ),
+                    modifier = Modifier
+                        .fillMaxWidth()
+                ) {
+                    Text(
+                        text = "Change password account",
+                        modifier = Modifier
+                            .padding(top = 5.dp, bottom = 5.dp),
+                        fontSize = 16.sp
+                    )
+                }
+
+            }
         }
     }
 }

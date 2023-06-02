@@ -205,7 +205,6 @@ fun LoginCard(
 
                 Button(
                     onClick = {
-
                         if (email.isEmpty() || password.isEmpty()) {
                             Toast.makeText(
                                 context,
