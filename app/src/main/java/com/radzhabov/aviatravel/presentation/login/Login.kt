@@ -43,7 +43,7 @@ fun Login(
                 WorldLogo()
             }
         }
-        LoginCard(db.userDao(), navController)
+        LoginCard(db.userDao(), db.flightDao(), navController)
     }
 }
 

@@ -48,7 +48,7 @@ fun RegisterCard(
 ) {
     val context = LocalContext.current
     val userRepository = UserRepository(userDao)
-    val viewModel: AuthViewModel = viewModel(factory = AuthViewModel.AuthViewModelFactory(userRepository))
+    val registerViewModel: AuthViewModel = viewModel(factory = AuthViewModel.AuthViewModelFactory(userRepository))
     var name by remember { mutableStateOf("") }
     var email by remember { mutableStateOf("") }
     var password by remember { mutableStateOf("") }
@@ -203,7 +203,7 @@ fun RegisterCard(
                         if(name.isEmpty() || email.isEmpty() || password.isEmpty()) {
                             errorMessage.value = "All fields are required"
                         } else {
-                            viewModel.register(name, email, password)
+                            registerViewModel.register(name, email, password)
                             Toast.makeText(
                                 context,
                                 "A new user is registered",

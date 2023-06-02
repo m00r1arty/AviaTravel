@@ -41,7 +41,10 @@ import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.lifecycle.viewmodel.compose.viewModel
 import androidx.navigation.NavController
+import com.radzhabov.aviatravel.data.dao.FlightDao
 import com.radzhabov.aviatravel.data.dao.UserDao
+import com.radzhabov.aviatravel.data.handlers.flightsList
+import com.radzhabov.aviatravel.data.repositories.FlightRepository
 import com.radzhabov.aviatravel.data.repositories.UserRepository
 import com.radzhabov.aviatravel.presentation.Screens
 import com.radzhabov.aviatravel.presentation.theme.CalmBlue
@@ -49,17 +52,22 @@ import com.radzhabov.aviatravel.presentation.theme.DarkBlue
 import com.radzhabov.aviatravel.presentation.theme.MiddleBlue
 import com.radzhabov.aviatravel.presentation.theme.SapphireBlue
 import com.radzhabov.aviatravel.presentation.viewmodels.AuthViewModel
+import com.radzhabov.aviatravel.presentation.viewmodels.MainViewModel
 import kotlinx.coroutines.runBlocking
 
 @Composable
 fun LoginCard(
     userDao: UserDao,
+    flightDao: FlightDao,
     navController: NavController
 ) {
     val context = LocalContext.current
     val userRepository = UserRepository(userDao)
-    val viewModel: AuthViewModel =
+    val flightRepository = FlightRepository(flightDao )
+    val loginViewModel: AuthViewModel =
         viewModel(factory = AuthViewModel.AuthViewModelFactory(userRepository))
+    val mainViewModel: MainViewModel =
+        viewModel(factory = MainViewModel.MainViewModelFactory(flightRepository))
     var email by remember { mutableStateOf("") }
     var password by remember { mutableStateOf("") }
 
@@ -206,7 +214,7 @@ fun LoginCard(
                             ).show()
                         } else {
                             runBlocking {
-                                val isChecked = viewModel.login(email, password)
+                                val isChecked = loginViewModel.login(email, password)
                                 if (isChecked) {
                                     navController.navigate(Screens.BottomNavBar.route) {
                                         launchSingleTop = true
@@ -219,6 +227,7 @@ fun LoginCard(
                                         Toast.LENGTH_SHORT
                                     ).show()
                                 }
+                                mainViewModel.loadFlights(flightsList)
                             }
                         }
                     },
