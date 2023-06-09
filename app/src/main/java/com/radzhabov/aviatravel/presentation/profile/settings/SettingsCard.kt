@@ -23,7 +23,7 @@ import androidx.compose.ui.graphics.ColorFilter
 import androidx.compose.ui.graphics.vector.ImageVector
 import androidx.compose.ui.layout.FirstBaseline
 import androidx.compose.ui.res.vectorResource
-import androidx.compose.ui.tooling.preview.Preview
+import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import com.radzhabov.aviatravel.R
@@ -40,7 +40,7 @@ fun SettingsCard() {
         Card(
             backgroundColor = Color.White,
             modifier = Modifier
-                .padding(15.dp)
+                .padding(16.dp)
                 .shadow(
                     elevation = 8.dp,
                     ambientColor = CalmBlue,
@@ -54,6 +54,16 @@ fun SettingsCard() {
                 verticalArrangement = Arrangement.Top,
                 modifier = Modifier.padding(start = 16.dp, end = 16.dp)
             ) {
+
+                Text(
+                    text = "Change your personal data",
+                    fontSize = 24.sp,
+                    color = DarkBlue,
+                    fontWeight = FontWeight.SemiBold,
+                    modifier = Modifier
+                        .fillMaxWidth()
+                        .padding(top = 30.dp, bottom = 16.dp, start = 16.dp)
+                )
 
                 OutlinedButton(
                     onClick = {

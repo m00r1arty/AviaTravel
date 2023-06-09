@@ -1,5 +1,6 @@
 package com.radzhabov.aviatravel.presentation.profile
 
+import androidx.compose.foundation.BorderStroke
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
@@ -10,7 +11,6 @@ import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.shape.RoundedCornerShape
-import androidx.compose.material.Button
 import androidx.compose.material.ButtonDefaults
 import androidx.compose.material.Card
 import androidx.compose.material.OutlinedButton
@@ -37,7 +37,6 @@ import com.radzhabov.aviatravel.presentation.theme.DarkBlue
 fun ProfileCard(
     navController: NavController
 ) {
-
     Card(
         backgroundColor = CalmBlue,
         modifier = Modifier.fillMaxSize(),
@@ -59,47 +58,56 @@ fun ProfileCard(
                 verticalArrangement = Arrangement.Top,
                 modifier = Modifier.padding(start = 16.dp, end = 16.dp)
             ) {
-                Column(
-                    verticalArrangement = Arrangement.Center,
-                    modifier = Modifier.fillMaxSize()
-                ) {
-                    Image(
-                        colorFilter = ColorFilter.tint(Color.Red),
-                        imageVector = ImageVector.vectorResource(id = R.drawable.ic_logout),
-                        contentDescription = null,
-                        modifier = Modifier
-                            .size(24.dp)
-                    )
+                Spacer(modifier = Modifier.padding(6.dp))
 
-                    Spacer(modifier = Modifier.padding(12.dp))
+                Image(
+                    colorFilter = ColorFilter.tint(DarkBlue),
+                    imageVector = ImageVector.vectorResource(id = R.drawable.ic_profile_avatar),
+                    contentDescription = null,
+                    modifier = Modifier
+                        .size(128.dp)
+                )
 
-                    Text(
-                        text = "UserName",
-                        fontSize = 24.sp,
-                        color = DarkBlue,
-                        fontWeight = FontWeight.SemiBold,
-                        modifier = Modifier
-                            .fillMaxWidth()
-                            .padding(top = 30.dp, bottom = 30.dp, start = 16.dp)
-                    )
+//                Spacer(modifier = Modifier.padding(6.dp))
 
-                }
+                Text(
+                    text = "UserName",
+                    fontSize = 24.sp,
+                    color = DarkBlue,
+                    fontWeight = FontWeight.SemiBold,
+                    modifier = Modifier
+                        .padding(top = 30.dp, start = 16.dp)
+                )
 
-                Button(
+                Text(
+                    text = "Account",
+                    fontSize = 14.sp,
+                    color = Color.Gray,
+                    fontWeight = FontWeight.SemiBold,
+                    modifier = Modifier
+                        .fillMaxWidth()
+                        .padding(bottom = 16.dp, start = 16.dp)
+                )
+
+                OutlinedButton(
                     onClick = {
-
+                        navController.navigate(Screens.Settings.route)
                     },
-                    shape = RoundedCornerShape(16.dp),
+                    shape = RoundedCornerShape(8.dp),
                     colors = ButtonDefaults.buttonColors(
-                        backgroundColor = DarkBlue,
-                        contentColor = Color.White
+                        backgroundColor = Color.White,
+                        contentColor = DarkBlue
+                    ),
+                    border = BorderStroke(
+                        width = 1.dp,
+                        color = DarkBlue
                     ),
                     modifier = Modifier
                         .fillMaxWidth()
-                        .padding(start = 32.dp, end = 16.dp)
+                        .padding(start = 16.dp)
                 ) {
                     Text(
-                        text = "Sign in",
+                        text = "Change personal data",
                         modifier = Modifier
                             .padding(top = 5.dp, bottom = 5.dp),
                         fontSize = 18.sp
@@ -110,7 +118,6 @@ fun ProfileCard(
 
                 OutlinedButton(
                     onClick = {
-                        navController.navigate(Screens.Settings.route)
                     },
                     shape = RoundedCornerShape(8.dp),
                     colors = ButtonDefaults.buttonColors(

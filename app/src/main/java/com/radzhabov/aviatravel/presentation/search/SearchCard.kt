@@ -35,7 +35,6 @@ import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.navigation.NavController
 import com.radzhabov.aviatravel.R
-import com.radzhabov.aviatravel.presentation.Screens
 import com.radzhabov.aviatravel.presentation.theme.CalmBlue
 import com.radzhabov.aviatravel.presentation.theme.DarkBlue
 import com.radzhabov.aviatravel.presentation.theme.MiddleBlue
