@@ -1,37 +1,44 @@
 package com.radzhabov.aviatravel.presentation.profile.settings
 
-import androidx.compose.foundation.Image
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
-import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
-import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.shape.RoundedCornerShape
+import androidx.compose.foundation.text.KeyboardOptions
+import androidx.compose.material.Button
 import androidx.compose.material.ButtonDefaults
 import androidx.compose.material.Card
-import androidx.compose.material.OutlinedButton
+import androidx.compose.material.OutlinedTextField
 import androidx.compose.material.Text
+import androidx.compose.material.TextFieldDefaults
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.getValue
+import androidx.compose.runtime.mutableStateOf
+import androidx.compose.runtime.remember
+import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.shadow
 import androidx.compose.ui.graphics.Color
-import androidx.compose.ui.graphics.ColorFilter
-import androidx.compose.ui.graphics.vector.ImageVector
-import androidx.compose.ui.layout.FirstBaseline
-import androidx.compose.ui.res.vectorResource
 import androidx.compose.ui.text.font.FontWeight
+import androidx.compose.ui.text.input.ImeAction
+import androidx.compose.ui.text.input.KeyboardType
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
-import com.radzhabov.aviatravel.R
 import com.radzhabov.aviatravel.presentation.theme.CalmBlue
 import com.radzhabov.aviatravel.presentation.theme.DarkBlue
 
 @Composable
-fun SettingsCard() {
+fun SettingsCard(
+
+) {
+    var username by remember { mutableStateOf("") }
+    var email by remember { mutableStateOf("") }
+    var password by remember { mutableStateOf("") }
+
     Card(
         backgroundColor = CalmBlue,
         modifier = Modifier.fillMaxSize(),
@@ -65,122 +72,105 @@ fun SettingsCard() {
                         .padding(top = 30.dp, bottom = 16.dp, start = 16.dp)
                 )
 
-                OutlinedButton(
-                    onClick = {
+                Spacer(modifier = Modifier.padding(16.dp))
 
-                    },
-//                    border = BorderStroke(3.dp, DarkBlue),
-                    shape = RoundedCornerShape(8.dp),
-                    colors = ButtonDefaults.buttonColors(
-                        backgroundColor = Color.White,
-                        contentColor = DarkBlue
-                    ),
+                OutlinedTextField(
+                    value = username,
+                    onValueChange = { username = it },
+                    label = { Text(text = "Username") },
+                    placeholder = { Text(text = "Enter your new username") },
                     modifier = Modifier
-                        .fillMaxWidth()
-                ) {
-                    Row(
-                        verticalAlignment = Alignment.CenterVertically,
-                        modifier = Modifier
-                            .fillMaxWidth()
-                            .alignBy(alignmentLine = FirstBaseline)
-                    ) {
-                        Image(
-                            colorFilter = ColorFilter.tint(DarkBlue),
-                            imageVector = ImageVector.vectorResource(id = R.drawable.ic_edit_username),
-                            contentDescription = null,
-                            modifier = Modifier
-                                .size(24.dp)
-//                                .padding(start = 2.dp, top = 5.dp)
-                        )
-                        Spacer(modifier = Modifier.padding(12.dp))
-                        Text(
-                            text = "Change username account",
-                            modifier = Modifier
-                                .padding(top = 5.dp, bottom = 5.dp),
-                            fontSize = 16.sp
-                        )
-                    }
-                }
+                        .fillMaxWidth(),
+                    shape = RoundedCornerShape(16.dp),
+                    keyboardOptions = KeyboardOptions(
+                        imeAction = ImeAction.Done,
+                        keyboardType = KeyboardType.Text
+                    ),
+                    colors = TextFieldDefaults.outlinedTextFieldColors(
+                        textColor = Color.Black,
+                        cursorColor = Color.Blue,
+                        leadingIconColor = Color.Gray,
+                        trailingIconColor = Color.Gray,
+                        focusedBorderColor = Color.Blue,
+                        unfocusedBorderColor = Color.Gray,
+                        errorBorderColor = Color.Red,
+                    )
+                )
 
                 Spacer(modifier = Modifier.padding(16.dp))
 
-                OutlinedButton(
-                    onClick = {
-
-                    },
-//                    border = BorderStroke(3.dp, DarkBlue),
-                    shape = RoundedCornerShape(8.dp),
-                    colors = ButtonDefaults.buttonColors(
-                        backgroundColor = Color.White,
-                        contentColor = DarkBlue
-                    ),
+                OutlinedTextField(
+                    value = password,
+                    onValueChange = { password = it },
+                    label = { Text(text = "Password") },
+                    placeholder = { Text(text = "Enter your new password") },
                     modifier = Modifier
-                        .fillMaxWidth()
-                ) {
-                    Row(
-                        verticalAlignment = Alignment.CenterVertically,
-                        modifier = Modifier
-                            .fillMaxWidth()
-                            .alignBy(alignmentLine = FirstBaseline)
-                    ) {
-                        Image(
-                            colorFilter = ColorFilter.tint(DarkBlue),
-                            imageVector = ImageVector.vectorResource(id = R.drawable.ic_edit_email),
-                            contentDescription = null,
-                            modifier = Modifier
-                                .size(24.dp)
-                        )
-                        Spacer(modifier = Modifier.padding(12.dp))
-                        Text(
-                            text = "Change email account",
-                            modifier = Modifier
-                                .padding(top = 5.dp, bottom = 5.dp),
-                            fontSize = 16.sp
-                        )
-                    }
-                }
+                        .fillMaxWidth(),
+                    shape = RoundedCornerShape(16.dp),
+                    keyboardOptions = KeyboardOptions(
+                        imeAction = ImeAction.Done,
+                        keyboardType = KeyboardType.Text
+                    ),
+                    colors = TextFieldDefaults.outlinedTextFieldColors(
+                        textColor = Color.Black,
+                        cursorColor = Color.Blue,
+                        leadingIconColor = Color.Gray,
+                        trailingIconColor = Color.Gray,
+                        focusedBorderColor = Color.Blue,
+                        unfocusedBorderColor = Color.Gray,
+                        errorBorderColor = Color.Red,
+                    )
+                )
 
                 Spacer(modifier = Modifier.padding(16.dp))
 
-                OutlinedButton(
+                OutlinedTextField(
+                    value = username,
+                    onValueChange = { username = it },
+                    label = { Text(text = "Email") },
+                    placeholder = { Text(text = "Enter your new email") },
+                    modifier = Modifier
+                        .fillMaxWidth(),
+                    shape = RoundedCornerShape(16.dp),
+                    keyboardOptions = KeyboardOptions(
+                        imeAction = ImeAction.Done,
+                        keyboardType = KeyboardType.Text
+                    ),
+                    colors = TextFieldDefaults.outlinedTextFieldColors(
+                        textColor = Color.Black,
+                        cursorColor = Color.Blue,
+                        leadingIconColor = Color.Gray,
+                        trailingIconColor = Color.Gray,
+                        focusedBorderColor = Color.Blue,
+                        unfocusedBorderColor = Color.Gray,
+                        errorBorderColor = Color.Red,
+                    )
+                )
+
+                Spacer(modifier = Modifier.padding(16.dp))
+
+                Button(
                     onClick = {
 
                     },
-//                    border = BorderStroke(3.dp, DarkBlue),
-                    shape = RoundedCornerShape(8.dp),
+                    shape = RoundedCornerShape(16.dp),
                     colors = ButtonDefaults.buttonColors(
-                        backgroundColor = Color.White,
-                        contentColor = DarkBlue
+                        backgroundColor = DarkBlue,
+                        contentColor = Color.White
                     ),
                     modifier = Modifier
                         .fillMaxWidth()
+                        .padding(end = 16.dp)
                 ) {
-                    Row(
-                        verticalAlignment = Alignment.CenterVertically,
+                    Text(
+                        text = "Confirm",
                         modifier = Modifier
-                            .fillMaxWidth()
-                            .alignBy(alignmentLine = FirstBaseline)
-                    ) {
-                        Image(
-                            colorFilter = ColorFilter.tint(DarkBlue),
-                            imageVector = ImageVector.vectorResource(id = R.drawable.ic_edit_password),
-                            contentDescription = null,
-                            modifier = Modifier
-                                .size(24.dp)
-//                                .padding(start = 2.dp, top = 5.dp)
-                        )
-                        Spacer(modifier = Modifier.padding(12.dp))
-                        Text(
-                            text = "Change password account",
-                            modifier = Modifier
-                                .padding(top = 5.dp, bottom = 5.dp),
-                            fontSize = 16.sp
-                        )
-                    }
+                            .padding(top = 5.dp, bottom = 5.dp),
+                        fontSize = 18.sp
+                    )
                 }
 
             }
         }
     }
-
 }

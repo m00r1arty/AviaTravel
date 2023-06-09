@@ -66,7 +66,7 @@ fun SearchCard(
             Column(
                 horizontalAlignment = Alignment.CenterHorizontally,
                 verticalArrangement = Arrangement.Top,
-                modifier = Modifier.padding(end = 16.dp)
+                modifier = Modifier.padding(start = 16.dp, end = 16.dp)
             ) {
                 Text(
                     text = "Discover the World",
@@ -75,7 +75,7 @@ fun SearchCard(
                     fontWeight = FontWeight.SemiBold,
                     modifier = Modifier
                         .fillMaxWidth()
-                        .padding(top = 30.dp, start = 16.dp)
+                        .padding(top = 30.dp)
                 )
 
                 Text(
@@ -85,7 +85,7 @@ fun SearchCard(
                     fontWeight = FontWeight.SemiBold,
                     modifier = Modifier
                         .fillMaxWidth()
-                        .padding(bottom = 30.dp, start = 16.dp)
+                        .padding(bottom = 30.dp)
                 )
 
                 OutlinedTextField(
@@ -95,7 +95,7 @@ fun SearchCard(
                     placeholder = { Text(text = "Enter your city") },
                     modifier = Modifier
                         .fillMaxWidth()
-                        .padding(start = 16.dp, bottom = 13.dp),
+                        .padding(bottom = 13.dp),
                     shape = RoundedCornerShape(16.dp),
                     keyboardOptions = KeyboardOptions(
                         imeAction = ImeAction.Next,
@@ -115,9 +115,9 @@ fun SearchCard(
                 Button(
                     onClick = {},
                     modifier = Modifier
-                        .size(64.dp)
-                        .clip(CircleShape)
-                        .padding(top = 10.dp, bottom = 10.dp),
+                        .size(56.dp)
+                        .clip(RoundedCornerShape(10.dp))
+                        .padding(bottom = 10.dp),
                     shape = CircleShape,
                     colors = ButtonDefaults.buttonColors(backgroundColor = DarkBlue)
                 ) {
@@ -135,7 +135,7 @@ fun SearchCard(
                     placeholder = { Text(text = "Enter your city") },
                     modifier = Modifier
                         .fillMaxWidth()
-                        .padding(start = 16.dp, bottom = 13.dp),
+                        .padding(bottom = 13.dp),
                     shape = RoundedCornerShape(16.dp),
                     keyboardOptions = KeyboardOptions(
                         imeAction = ImeAction.Done,
@@ -165,7 +165,7 @@ fun SearchCard(
                     ),
                     modifier = Modifier
                         .fillMaxWidth()
-                        .padding(start = 32.dp, end = 16.dp)
+                        .padding(start = 16.dp, end = 16.dp)
                 ) {
                     Text(
                         text = "Search Flights",

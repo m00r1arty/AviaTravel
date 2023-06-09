@@ -1,6 +1,5 @@
 package com.radzhabov.aviatravel.presentation.profile
 
-import androidx.compose.foundation.BorderStroke
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
@@ -76,7 +75,7 @@ fun ProfileCard(
                     color = DarkBlue,
                     fontWeight = FontWeight.SemiBold,
                     modifier = Modifier
-                        .padding(top = 30.dp, start = 16.dp)
+                        .padding(top = 30.dp)
                 )
 
                 Text(
@@ -86,7 +85,7 @@ fun ProfileCard(
                     fontWeight = FontWeight.SemiBold,
                     modifier = Modifier
                         .fillMaxWidth()
-                        .padding(bottom = 16.dp, start = 16.dp)
+                        .padding(bottom = 16.dp)
                 )
 
                 OutlinedButton(
@@ -98,20 +97,31 @@ fun ProfileCard(
                         backgroundColor = Color.White,
                         contentColor = DarkBlue
                     ),
-                    border = BorderStroke(
-                        width = 1.dp,
-                        color = DarkBlue
-                    ),
                     modifier = Modifier
                         .fillMaxWidth()
-                        .padding(start = 16.dp)
                 ) {
-                    Text(
-                        text = "Change personal data",
+                    Row(
+                        verticalAlignment = Alignment.CenterVertically,
                         modifier = Modifier
-                            .padding(top = 5.dp, bottom = 5.dp),
-                        fontSize = 18.sp
-                    )
+                            .fillMaxWidth()
+                            .alignBy(alignmentLine = FirstBaseline)
+                    ) {
+                        Image(
+                            colorFilter = ColorFilter.tint(DarkBlue),
+                            imageVector = ImageVector.vectorResource(id = R.drawable.ic_change),
+                            contentDescription = null,
+                            modifier = Modifier
+                                .size(24.dp)
+//                                .padding(start = 2.dp, top = 5.dp)
+                        )
+                        Spacer(modifier = Modifier.padding(12.dp))
+                        Text(
+                            text = "Change personal data",
+                            modifier = Modifier
+                                .padding(top = 5.dp, bottom = 5.dp),
+                            fontSize = 18.sp
+                        )
+                    }
                 }
 
                 Spacer(modifier = Modifier.padding(16.dp))
