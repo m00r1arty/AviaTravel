@@ -6,9 +6,9 @@ import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
 import androidx.compose.foundation.layout.*
 import androidx.compose.material.*
-import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.ui.platform.LocalContext
 import androidx.lifecycle.viewmodel.compose.viewModel
+import androidx.navigation.compose.rememberNavController
 import com.radzhabov.aviatravel.data.db.AppDatabase
 import com.radzhabov.aviatravel.data.handlers.flightsList
 import com.radzhabov.aviatravel.data.repositories.FlightRepository
@@ -27,12 +27,13 @@ class MainActivity : ComponentActivity() {
             val database = AppDatabase.getInstance(context)
             val flightDao = database.flightDao()
 
-
             val flightRepository = FlightRepository(flightDao)
             val mainViewModel: MainViewModel = viewModel(factory = MainViewModel.MainViewModelFactory(flightRepository))
 
             mainViewModel.loadFlights(flightsList)
-            AppNavigation()
+            val navController = rememberNavController()
+            AppNavigation(navController)
+//            NavGraph()
         }
     }
 }

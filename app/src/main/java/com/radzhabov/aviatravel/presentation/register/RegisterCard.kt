@@ -1,17 +1,31 @@
 package com.radzhabov.aviatravel.presentation.register
 
-import android.annotation.SuppressLint
 import android.widget.Toast
-import androidx.compose.foundation.layout.*
+import androidx.compose.foundation.layout.Arrangement
+import androidx.compose.foundation.layout.Column
+import androidx.compose.foundation.layout.Row
+import androidx.compose.foundation.layout.fillMaxSize
+import androidx.compose.foundation.layout.fillMaxWidth
+import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.foundation.text.ClickableText
 import androidx.compose.foundation.text.KeyboardOptions
-import androidx.compose.material.*
+import androidx.compose.material.Button
+import androidx.compose.material.ButtonDefaults
+import androidx.compose.material.Card
+import androidx.compose.material.Icon
+import androidx.compose.material.OutlinedTextField
+import androidx.compose.material.Text
+import androidx.compose.material.TextFieldDefaults
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.Email
 import androidx.compose.material.icons.filled.Lock
 import androidx.compose.material.icons.filled.Person
-import androidx.compose.runtime.*
+import androidx.compose.runtime.Composable
+import androidx.compose.runtime.getValue
+import androidx.compose.runtime.mutableStateOf
+import androidx.compose.runtime.remember
+import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.shadow
@@ -29,18 +43,17 @@ import androidx.compose.ui.unit.sp
 import androidx.lifecycle.viewmodel.compose.viewModel
 import androidx.navigation.NavController
 import androidx.navigation.compose.rememberNavController
-import com.radzhabov.aviatravel.presentation.Screens
 import com.radzhabov.aviatravel.data.dao.UserDao
 import com.radzhabov.aviatravel.data.db.AppDatabase
 import com.radzhabov.aviatravel.data.repositories.UserRepository
+import com.radzhabov.aviatravel.presentation.Screens
 import com.radzhabov.aviatravel.presentation.theme.CalmBlue
 import com.radzhabov.aviatravel.presentation.theme.DarkBlue
 import com.radzhabov.aviatravel.presentation.theme.MiddleBlue
 import com.radzhabov.aviatravel.presentation.theme.SapphireBlue
-import com.radzhabov.aviatravel.presentation.theme.*
 import com.radzhabov.aviatravel.presentation.viewmodels.AuthViewModel
 
-@SuppressLint("UnusedMaterialScaffoldPaddingParameter")
+//@SuppressLint("UnusedMaterialScaffoldPaddingParameter")
 @Composable
 fun RegisterCard(
     userDao: UserDao,
@@ -231,15 +244,5 @@ fun RegisterCard(
 
             }
         }
-    }
-}
-
-@Preview(showBackground = true)
-@Composable
-fun RegisterCardPreview () {
-    val context = LocalContext.current
-    val db = remember { AppDatabase.getInstance(context) }
-    val navController = rememberNavController().also {
-        RegisterCard(userDao = db.userDao(), navController = it)
     }
 }

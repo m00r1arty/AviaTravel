@@ -157,10 +157,7 @@ fun SearchCard(
 
                 Button(
                     onClick = {
-//                        navController.navigate(Screens.BottomNavBar.route) {
-//                            launchSingleTop = true
-//                            restoreState = true
-//                        }
+
                     },
                     shape = RoundedCornerShape(16.dp),
                     colors = ButtonDefaults.buttonColors(
