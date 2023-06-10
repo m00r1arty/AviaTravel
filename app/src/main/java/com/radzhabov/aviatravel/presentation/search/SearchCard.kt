@@ -9,14 +9,11 @@ import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.shape.CircleShape
 import androidx.compose.foundation.shape.RoundedCornerShape
-import androidx.compose.foundation.text.KeyboardOptions
 import androidx.compose.material.Button
 import androidx.compose.material.ButtonDefaults
 import androidx.compose.material.Card
 import androidx.compose.material.Icon
-import androidx.compose.material.OutlinedTextField
 import androidx.compose.material.Text
-import androidx.compose.material.TextFieldDefaults
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
@@ -29,23 +26,25 @@ import androidx.compose.ui.draw.shadow
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.text.font.FontWeight
-import androidx.compose.ui.text.input.ImeAction
-import androidx.compose.ui.text.input.KeyboardType
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.navigation.NavController
 import com.radzhabov.aviatravel.R
+import com.radzhabov.aviatravel.data.handlers.FlightHandler
 import com.radzhabov.aviatravel.presentation.theme.CalmBlue
 import com.radzhabov.aviatravel.presentation.theme.DarkBlue
 import com.radzhabov.aviatravel.presentation.theme.MiddleBlue
 
+
 @Composable
-fun SearchCard(
-    navController: NavController
-) {
+fun SearchCard(navController: NavController) {
+    val flightHandler = FlightHandler()
     var from by remember { mutableStateOf("") }
     var to by remember { mutableStateOf("") }
+    var isFromDropdownOpen by remember { mutableStateOf(false) }
+    var isToDropdownOpen by remember { mutableStateOf(false) }
 
+    // Assume you have a flightList with flight data
 
     Card(
         backgroundColor = CalmBlue,
@@ -88,32 +87,21 @@ fun SearchCard(
                         .padding(bottom = 30.dp)
                 )
 
-                OutlinedTextField(
+                SearchDropDown(
                     value = from,
                     onValueChange = { from = it },
-                    label = { Text(text = "From") },
-                    placeholder = { Text(text = "Enter your city") },
+                    label = "From",
+                    placeholder = "Enter your city",
                     modifier = Modifier
                         .fillMaxWidth()
                         .padding(bottom = 13.dp),
-                    shape = RoundedCornerShape(16.dp),
-                    keyboardOptions = KeyboardOptions(
-                        imeAction = ImeAction.Next,
-                        keyboardType = KeyboardType.Text
-                    ),
-                    colors = TextFieldDefaults.outlinedTextFieldColors(
-                        textColor = DarkBlue,
-                        cursorColor = Color.Blue,
-                        leadingIconColor = Color.Gray,
-                        trailingIconColor = Color.Gray,
-                        focusedBorderColor = Color.Blue,
-                        unfocusedBorderColor = Color.Gray,
-                        errorBorderColor = Color.Red,
-                    )
+                    dropDownItems = flightHandler.FlightsList(),
+                    isDropdownOpen = isFromDropdownOpen,
+                    onDropdownOpenChange = { isOpen -> isFromDropdownOpen = isOpen }
                 )
 
                 Button(
-                    onClick = {},
+                    onClick = { /* Handle From button click */ },
                     modifier = Modifier
                         .size(56.dp)
                         .clip(RoundedCornerShape(10.dp))
@@ -128,36 +116,23 @@ fun SearchCard(
                     )
                 }
 
-                OutlinedTextField(
+                SearchDropDown(
                     value = to,
                     onValueChange = { to = it },
-                    label = { Text(text = "To") },
-                    placeholder = { Text(text = "Enter your city") },
+                    label = "To",
+                    placeholder = "Enter your city",
                     modifier = Modifier
                         .fillMaxWidth()
                         .padding(bottom = 13.dp),
-                    shape = RoundedCornerShape(16.dp),
-                    keyboardOptions = KeyboardOptions(
-                        imeAction = ImeAction.Done,
-                        keyboardType = KeyboardType.Text
-                    ),
-                    colors = TextFieldDefaults.outlinedTextFieldColors(
-                        textColor = Color.Black,
-                        cursorColor = Color.Blue,
-                        leadingIconColor = Color.Gray,
-                        trailingIconColor = Color.Gray,
-                        focusedBorderColor = Color.Blue,
-                        unfocusedBorderColor = Color.Gray,
-                        errorBorderColor = Color.Red,
-                    )
+                    dropDownItems = flightHandler.FlightsList(),
+                    isDropdownOpen = isToDropdownOpen,
+                    onDropdownOpenChange = { isOpen -> isToDropdownOpen = isOpen }
                 )
 
                 Spacer(modifier = Modifier.padding(20.dp))
 
                 Button(
-                    onClick = {
-
-                    },
+                    onClick = { /* Handle Search Flights button click */ },
                     shape = RoundedCornerShape(16.dp),
                     colors = ButtonDefaults.buttonColors(
                         backgroundColor = DarkBlue,

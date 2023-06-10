@@ -1,4 +1,4 @@
-package com.radzhabov.aviatravel.presentation
+package com.radzhabov.aviatravel.presentation.search
 
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
@@ -12,34 +12,14 @@ import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
-import com.radzhabov.aviatravel.data.handlers.flightsList
-
-//@Composable
-//fun ListCountry(){
-//    LazyColumn {
-//        items(countriesList) { country ->
-//            for (city in citiesList) {
-//                if (city.country_code == country.code) {
-//                    Text(
-//                        text = "${country.name}, ${city.name}",
-//                        color = Color.White,
-//                        fontSize = 20.sp,
-//                        fontWeight = FontWeight.Bold,
-//                        textAlign = TextAlign.Center,
-//                        modifier = Modifier
-//                            .fillMaxWidth()
-//                            .padding(vertical = 24.dp)
-//                    )
-//                }
-//            }
-//        }
-//    }
-//}
+import com.radzhabov.aviatravel.data.handlers.FlightHandler
 
 @Composable
 fun ListCountry(){
+    val flightHandler = FlightHandler()
+
     LazyColumn {
-        items(flightsList) { flight ->
+        items(flightHandler.FlightsList()) { flight ->
             Text(
                 text = "${flight.city}, ${flight.country}",
                 color = Color.Black,

@@ -5,10 +5,14 @@ import com.radzhabov.aviatravel.data.dto.FlightsDTO
 import com.radzhabov.aviatravel.data.mapper.mapFlights
 import com.radzhabov.aviatravel.data.resource.ResourceHelper
 
-// Airports handlers
-val jsonFileStringFlights = ResourceHelper.getJsonDataFromAsset("/flights.json")
-val listFlightsType = object : TypeToken<FlightsDTO>() {}.type
-val flights: FlightsDTO = gson.fromJson(jsonFileStringFlights, listFlightsType)
-val flightsList = flights.flights.map { dto ->
-    dto.mapFlights()
+class FlightHandler {
+    // Airports handlers
+    private val jsonFileStringFlights = ResourceHelper.getJsonDataFromAsset("/flights.json")
+    private val listFlightsType = object : TypeToken<FlightsDTO>() {}.type
+    private val flights: FlightsDTO = gson.fromJson(jsonFileStringFlights, listFlightsType)
+
+    fun FlightsList() = flights.flights.map { dto ->
+        dto.mapFlights()
+    }
+
 }

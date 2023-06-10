@@ -10,7 +10,7 @@ import androidx.compose.ui.platform.LocalContext
 import androidx.lifecycle.viewmodel.compose.viewModel
 import androidx.navigation.compose.rememberNavController
 import com.radzhabov.aviatravel.data.db.AppDatabase
-import com.radzhabov.aviatravel.data.handlers.flightsList
+import com.radzhabov.aviatravel.data.handlers.FlightHandler
 import com.radzhabov.aviatravel.data.repositories.FlightRepository
 import com.radzhabov.aviatravel.presentation.*
 import com.radzhabov.aviatravel.presentation.navigation.AppNavigation
@@ -23,6 +23,7 @@ class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContent {
+            val flightHandler = FlightHandler()
             val context = LocalContext.current
             val database = AppDatabase.getInstance(context)
             val flightDao = database.flightDao()
@@ -30,7 +31,7 @@ class MainActivity : ComponentActivity() {
             val flightRepository = FlightRepository(flightDao)
             val mainViewModel: MainViewModel = viewModel(factory = MainViewModel.MainViewModelFactory(flightRepository))
 
-            mainViewModel.loadFlights(flightsList)
+            mainViewModel.loadFlights(flightHandler.FlightsList())
             val navController = rememberNavController()
             AppNavigation(navController)
 //            NavGraph()

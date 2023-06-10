@@ -100,10 +100,10 @@ fun SettingsCard(
                 Spacer(modifier = Modifier.padding(16.dp))
 
                 OutlinedTextField(
-                    value = password,
-                    onValueChange = { password = it },
-                    label = { Text(text = "Password") },
-                    placeholder = { Text(text = "Enter your new password") },
+                    value = email,
+                    onValueChange = { email = it },
+                    label = { Text(text = "Email") },
+                    placeholder = { Text(text = "Enter your new email") },
                     modifier = Modifier
                         .fillMaxWidth(),
                     shape = RoundedCornerShape(16.dp),
@@ -125,10 +125,10 @@ fun SettingsCard(
                 Spacer(modifier = Modifier.padding(16.dp))
 
                 OutlinedTextField(
-                    value = username,
-                    onValueChange = { username = it },
-                    label = { Text(text = "Email") },
-                    placeholder = { Text(text = "Enter your new email") },
+                    value = password,
+                    onValueChange = { password = it },
+                    label = { Text(text = "Password") },
+                    placeholder = { Text(text = "Enter your new password") },
                     modifier = Modifier
                         .fillMaxWidth(),
                     shape = RoundedCornerShape(16.dp),
