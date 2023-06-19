@@ -37,6 +37,7 @@ import com.radzhabov.aviatravel.presentation.theme.DarkBlue
 fun ProfileCard(
     navController: NavController
 ) {
+
     Card(
         backgroundColor = CalmBlue,
         modifier = Modifier.fillMaxSize(),
