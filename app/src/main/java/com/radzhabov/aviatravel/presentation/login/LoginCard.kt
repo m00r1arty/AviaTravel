@@ -215,11 +215,6 @@ fun LoginCard(
                                         launchSingleTop = true
                                         restoreState = true
                                     }
-                                    Toast.makeText(
-                                        context,
-                                        "Log in $email",
-                                        Toast.LENGTH_SHORT
-                                    ).show()
                                 } else {
                                     Toast.makeText(
                                         context,

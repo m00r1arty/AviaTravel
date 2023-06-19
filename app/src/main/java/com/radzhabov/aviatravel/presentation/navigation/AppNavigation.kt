@@ -22,7 +22,7 @@ fun AppNavigation(
 
     NavHost(
         navController = navController as NavHostController,
-        startDestination = Screens.BottomNavBar.route
+        startDestination = Screens.Login.route
     ){
         composable(route = Screens.Login.route){ Login(navController) }
 

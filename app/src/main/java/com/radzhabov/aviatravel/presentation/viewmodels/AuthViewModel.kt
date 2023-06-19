@@ -1,6 +1,5 @@
 package com.radzhabov.aviatravel.presentation.viewmodels
 
-import android.util.Log
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
 import androidx.lifecycle.viewModelScope
@@ -30,7 +29,6 @@ class AuthViewModel @Inject constructor(
         }
         return resultOfSign.value
     }
-    // Остальные функции ViewModel
 
     fun register(name: String, email: String, password: String) {
         viewModelScope.launch {

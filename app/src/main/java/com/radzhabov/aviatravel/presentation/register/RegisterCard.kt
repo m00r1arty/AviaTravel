@@ -37,14 +37,11 @@ import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.input.ImeAction
 import androidx.compose.ui.text.input.KeyboardType
 import androidx.compose.ui.text.input.PasswordVisualTransformation
-import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.lifecycle.viewmodel.compose.viewModel
 import androidx.navigation.NavController
-import androidx.navigation.compose.rememberNavController
 import com.radzhabov.aviatravel.data.dao.UserDao
-import com.radzhabov.aviatravel.data.db.AppDatabase
 import com.radzhabov.aviatravel.data.repositories.UserRepository
 import com.radzhabov.aviatravel.presentation.Screens
 import com.radzhabov.aviatravel.presentation.theme.CalmBlue
@@ -219,7 +216,7 @@ fun RegisterCard(
                             registerViewModel.register(name, email, password)
                             Toast.makeText(
                                 context,
-                                "A new user is registered",
+                                "$name is registered",
                                 Toast.LENGTH_SHORT
                             ).show()
                             navController.navigate(Screens.Login.route)

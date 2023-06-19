@@ -1,6 +1,7 @@
 package com.radzhabov.aviatravel.presentation.profile
 
 import androidx.compose.foundation.Image
+import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
@@ -67,10 +68,8 @@ fun ProfileCard(
                         .size(128.dp)
                 )
 
-//                Spacer(modifier = Modifier.padding(6.dp))
-
                 Text(
-                    text = "UserName",
+                    text = "Radzhabov Ikromdzhon",
                     fontSize = 24.sp,
                     color = DarkBlue,
                     fontWeight = FontWeight.SemiBold,
@@ -141,6 +140,7 @@ fun ProfileCard(
                         verticalAlignment = Alignment.CenterVertically,
                         modifier = Modifier
                             .alignBy(alignmentLine = FirstBaseline)
+                            .clickable { navController.navigate(Screens.Login.route) }
                     ) {
 
                         Text(
